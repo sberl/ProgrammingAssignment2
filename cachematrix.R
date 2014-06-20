@@ -3,18 +3,26 @@
 ## of programs which need to solve for the inverse of a matrix multiple
 ## times.
 
-## Use this function to initialize the matrix.
+## Usage:
+# Create a CacheMatrix object by calling makeCacheMAtrix()
+# Use the set() method to set the matrix data
+# Use get() method to retrieve the matrix data
+# Use the cacheSolve() function to get the inverse matrix
 
+
+
+## Use this function to initialize the matrix.
 makeCacheMatrix <- function(x = matrix()) {
     cachedInv <- NULL
     set <- function(y) {
-        x <<- y
-        cachedInv <<- NULL
+        x <<- y # Save the matrix data
+        cachedInv <<- NULL # clear the cache
     }
     get <- function() x
     setinverse <- function(inv) cachedInv <<- inv
     getinverse <- function() cachedInv
     
+    # Return a list of functions to use to manipulate the CacheMatrix
     list(set = set, 
          get = get, 
          setinverse = setinverse, 
